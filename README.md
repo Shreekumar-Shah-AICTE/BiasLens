@@ -26,6 +26,7 @@
 
   <br /><br />
 
+  <a href="https://biaslens-sc2026.web.app" target="_blank"><strong>🌐 Live Demo</strong></a> •
   <a href="#-key-features">Features</a> •
   <a href="#-quick-start">Quick Start</a> •
   <a href="#%EF%B8%8F-architecture">Architecture</a> •
@@ -153,6 +154,8 @@ npm run dev
 ```
 
 > 🌐 Open [http://localhost:5173](http://localhost:5173) in your browser
+>
+> **Or try the live deployment:** [https://biaslens-sc2026.web.app](https://biaslens-sc2026.web.app)
 
 ### Usage
 
