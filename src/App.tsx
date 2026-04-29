@@ -12,6 +12,7 @@ import { Recommendations } from './components/Recommendations';
 import { DemographicChart } from './components/DemographicChart';
 import { ScanningOverlay } from './components/ScanningOverlay';
 import { CsvUploader } from './components/CsvUploader';
+import { ExportButton } from './components/ExportButton';
 
 type AppState = 'hero' | 'select' | 'csv-upload' | 'scanning' | 'results';
 
@@ -393,6 +394,11 @@ function App() {
                     <p className="text-text-secondary text-sm max-w-xl">{analysis.summary}</p>
                   </div>
                   <div className="flex items-center gap-3">
+                    <ExportButton
+                      analysis={analysis}
+                      scenarioTitle={selectedScenario.title}
+                      scenarioIcon={selectedScenario.icon}
+                    />
                     <button
                       onClick={handleReset}
                       className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg px-5 py-2.5 text-sm font-medium transition-all whitespace-nowrap"
@@ -403,7 +409,7 @@ function App() {
                 </div>
 
                 {/* Top Row: Gauge + Severity + Metrics */}
-                <div className="grid md:grid-cols-12 gap-6 mb-6">
+                <div id="bias-dashboard" className="grid md:grid-cols-12 gap-6 mb-6">
                   <div className="md:col-span-4">
                     <FairnessGauge score={analysis.overallFairnessScore} severity={analysis.severityLevel} />
                   </div>
