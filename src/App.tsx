@@ -13,8 +13,9 @@ import { DemographicChart } from './components/DemographicChart';
 import { ScanningOverlay } from './components/ScanningOverlay';
 import { CsvUploader } from './components/CsvUploader';
 import { ExportButton } from './components/ExportButton';
+import { MethodologyPage } from './components/MethodologyPage';
 
-type AppState = 'hero' | 'select' | 'csv-upload' | 'scanning' | 'results';
+type AppState = 'hero' | 'select' | 'csv-upload' | 'scanning' | 'results' | 'methodology';
 
 const API_KEY_STORAGE = 'biaslens_gemini_key';
 
@@ -136,6 +137,12 @@ function App() {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-xs text-text-secondary font-mono hidden sm:block">SDG 10 — Reduced Inequalities</span>
+            <button
+              onClick={() => setAppState('methodology')}
+              className="text-xs text-text-muted hover:text-cyan-400 transition-colors font-mono hidden sm:block"
+            >
+              Methodology
+            </button>
             {apiKey && (
               <button
                 onClick={resetApiKey}
@@ -451,6 +458,11 @@ function App() {
                 </motion.div>
               </div>
             </motion.div>
+          )}
+
+          {/* ═══ METHODOLOGY STATE ═══ */}
+          {appState === 'methodology' && (
+            <MethodologyPage key="methodology" onBack={() => setAppState(apiKey ? 'select' : 'hero')} />
           )}
         </AnimatePresence>
       </main>
